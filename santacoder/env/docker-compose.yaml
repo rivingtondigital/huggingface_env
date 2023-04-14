@@ -1,0 +1,13 @@
+version: '3'
+services:
+  notebook:
+      build: .  
+      volumes:
+        - ../notebooks:/home/jovyan/work/notebooks
+        - ../datasets:/home/jovyan/work/datasets
+        - ../models:/home/jovyan/work/models
+        - .:/home/jovyan/env
+        - ../cache:/home/jovyan/.cache/huggingface
+      ports:
+        - 8888:8888
+      container_name: huggingface_jupyter
